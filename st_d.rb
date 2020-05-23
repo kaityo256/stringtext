@@ -83,9 +83,8 @@ atoms = get_particles
 
 steps.times do |i|
   index = (i + 108) % steps
-  filename = format("%04d.png", index)
+  filename = format("img%03d.png", index)
   puts filename
   step(atoms, i)
   save_png(filename, atoms)
-  # puts "#{i} #{atoms[0].x} #{atoms[0].y}"
 end
