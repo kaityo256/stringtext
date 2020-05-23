@@ -28,8 +28,8 @@ def get_particles
       i = x + y * width
       next if surface.data[i*4].ord ==0
 
-      vx = [-1, 1, -2, 2].sample
-      vy = [-1, 1, -0.5, 0.5, -0.25, 0.25, 0.75, -0.75].sample
+      vx = [-4, -2, 2, 4].sample
+      vy = [-2, -1.5, -1.0, -0.5, 0.5, 1.0, 1.5, 2.0].sample
       r = rand
       g = rand
       b = rand
@@ -40,10 +40,9 @@ def get_particles
 end
 
 def step(atoms)
-  dt = 2.0
   atoms.each do |a|
-    a.x += a.vx*dt
-    a.y += a.vy*dt
+    a.x += a.vx
+    a.y += a.vy
     a.x += $LX if a.x < 0
     a.y += $LY if a.y < 0
     a.x -= $LX if a.x > $LX
